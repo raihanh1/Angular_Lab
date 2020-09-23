@@ -1,0 +1,20 @@
+<h3>TODO List</h3>
+<span>A place to store your todos</span>
+<input class="fullWidth" type="text" placeholder="Filter your to-dos" />
+
+<div class="todo-item" *ngFor="let todo of todos">
+  <div>
+    <span>{{ todo.id }}. </span>
+    <button class="completed" *ngIf="!todo.completed">Complete</button>
+    <div [ngClass]="todo.completed ? 'strikethrough' : 'null'">
+      {{ todo.task }}
+    </div>
+    <button class="rightSide close">
+      <img src="/assets/close.svg" />
+    </button>
+  </div>
+</div>
+<span *ngIf="todos.length == 0">Nothing to do!</span>
+
+<input class="fullWidth" type="text" placeholder="Add your to-do" />
+<button class="fullWidth addButton">Add</button>
